@@ -1,0 +1,38 @@
+{
+	"name": "fullstack-devcontainer",
+	"image": "ubuntu:22.04",
+	// Comment out the next line to run as root instead.
+	"remoteUser": "codemonkey",
+	"updateRemoteUserUID": true,
+	"workspaceMount": "source=${containerWorkspaceFolderBasename}-volume-${env:USER}${env:USERNAME},target=/home/codemonkey/workspaces,type=volume",
+	"workspaceFolder": "/home/codemonkey/workspaces",
+	"containerEnv": {
+		"ENV_NAME": "local",
+		"CONTAINERIZED": "true"
+	},
+	"mounts": [
+	        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/codemonkey/.ssh,type=bind,consistency=cached",
+        	"source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/codemonkey/.aws,type=bind,consistency=cached",
+	        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.m2/settings.xml,target=/home/codemonkey/.m2/settings.xml,type=bind,consistency=cached",
+	        "source=maven-repo-volume,target=/home/codemonkey/.m2/repository,type=volume",
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+	],
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"configureZshAsDefaultShell": true,
+			"username": "codemonkey",
+			"userUid": 1000,
+			"userGid": 1000
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "17.0.8",
+			"jdkDistro": "oracle",
+			"installMaven": true
+		},
+		"ghcr.io/devcontainers/features/aws-cli:1": {}
+	},
+	"runArgs": [
+		"--env-file",
+		"${localWorkspaceFolder}/.env"
+	]
+}
