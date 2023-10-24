@@ -1,0 +1,54 @@
+{
+    "id": "opencv-support",
+    "version": "1.0.0",
+    "name": "OpenCV Support",
+    "documentationURL": "ttps://github.com/jeffersonjhunt/featured-devcontainers/tree/main/src/opencv",
+    "description": "Installs OpenCV, optionally with CUDA support",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "4.8.1",
+            "description": "OpenCV version to install"
+        },
+        "withCuda": {
+            "type": "boolean",
+            "default": true,
+            "description": "Add CUDA support?"
+        },
+        "withPython3": {
+            "type": "boolean",
+            "default": true,
+            "description": "Add Python 3 support?"
+        },
+        "withGtk3": {
+            "type": "boolean",
+            "default": false,
+            "description": "Add GTK 3 support?"
+        },
+        "withJpeg": {
+            "type": "boolean",
+            "default": false,
+            "description": "Add JPEG support?"
+        },
+        "withOpenExr": {
+            "type": "boolean",
+            "default": false,
+            "description": "Add OpenEXR support?"
+        },
+        "withPng": {
+            "type": "boolean",
+            "default": false,
+            "description": "Add PNG support?"
+        },
+        "withTiff": {
+            "type": "boolean",
+            "default": false,
+            "description": "Add TIFF support?"
+        },
+        "withWebP": {
+            "type": "boolean",
+            "default": false,
+            "description": "Add WebP support?"
+        }
+    }
+}

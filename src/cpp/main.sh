@@ -1,11 +1,11 @@
 #!/bin/sh
 #-------------------------------------------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
+# Copyright (c) Jefferson J. Hunt. All rights reserved.
 # Licensed under the MIT License. See https://github.com/devcontainers/features/blob/main/LICENSE for license information.
 #-------------------------------------------------------------------------------------------------------------------------
 #
-# Docs: https://github.com/devcontainers/features/tree/main/src/common-utils
-# Maintainer: The Dev Container spec maintainers
+# Docs: https://github.com/jeffersonjhunt/featured-devcontainers/tree/main/src/cpp
+# Maintainer: Jefferson J. Hunt (jeffersonjhunt at gmail.com)
 
 set -e
 
@@ -25,16 +25,30 @@ install_debian_packages() {
     local package_list=""
     if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         package_list="${package_list} \
-	build-essential \
-    cmake \
-    libboost-all-dev \
-    libfmt-dev"
+	        locales \
+            build-essential"
+    fi
 
     # Install the list of packages
     echo "Packages to verify are installed: ${package_list}"
     rm -rf /var/lib/apt/lists/*
     apt-get update -y
     apt-get -y install --no-install-recommends ${package_list} 2> >( grep -v 'debconf: delaying package configuration, since apt-utils is not installed' >&2 )
+
+    # Install cmake (and recommended packages) if needed
+    if [ "${INSTALL_CMAKE}" = "true" ]; then
+        apt-get install -y cmake
+    fi
+
+    # Install boost (and recommended packages) if needed
+    if [ "${INSTALL_BOOST}" = "true" ]; then
+        apt-get install -y libboost-all-dev
+    fi
+
+    # Install fmt (and recommended packages) if needed
+    if [ "${INSTALL_FMT}" = "true" ]; then
+        apt-get install -y libfmt-dev
+    fi
 
     # Get to latest versions of all packages
     if [ "${UPGRADE_PACKAGES}" = "true" ]; then
@@ -59,11 +73,13 @@ install_debian_packages() {
 # RedHat / RockyLinux / CentOS / Fedora packages
 install_redhat_packages() {
     ## TODO ##
+    PACKAGES_ALREADY_INSTALLED="true"
 }
 
 # Alpine Linux packages
 install_alpine_packages() {
     ## TODO ##
+    PACKAGES_ALREADY_INSTALLED="true"
 }
 
 # ******************

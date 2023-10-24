@@ -1,19 +1,18 @@
 #!/bin/sh
 #-------------------------------------------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
+# Copyright (c) Jefferson J. Hunt. All rights reserved.
 # Licensed under the MIT License. See https://github.com/devcontainers/features/blob/main/LICENSE for license information.
 #-------------------------------------------------------------------------------------------------------------------------
 #
-# Docs: https://github.com/devcontainers/features/tree/main/src/common-utils
-# Maintainer: The Dev Container spec maintainers
+# Docs: https://github.com/jeffersonjhunt/featured-devcontainers/tree/main/src/opencv
+# Maintainer: Jefferson J. Hunt (jeffersonjhunt at gmail.com)
 
 set -e
 
-INSTALL_X11="${INSTALLX11:-"true"}"
-X11_DISPLAY="${X11DISPLAY:-""}
-X11_SOCKET="${X11SOCKET:-""}
+WITH_CUDA="${WITHCUDA:-"true"}"
+VERSION="${VERSION:-"4.8.1"}"
 
-MARKER_FILE="/usr/local/etc/vscode-dev-containers/x11"
+MARKER_FILE="/usr/local/etc/vscode-dev-containers/opencv"
 
 FEATURE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -25,17 +24,10 @@ install_debian_packages() {
     local package_list=""
     if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         package_list="${package_list} \
-	libwayland-dev \
-	libx11-dev \
-	libx11-xcb-dev \
-	libxkbcommon-x11-dev \
-	libgles2-mesa-dev \
-	libegl1-mesa-dev \
-	libffi-dev \
-	libxcursor-dev \
-	libvulkan-dev \
-	mesa-utils \
-        xterm"
+	        locales \
+            build-essential \
+            cmake"
+    fi
 
     # Install the list of packages
     echo "Packages to verify are installed: ${package_list}"

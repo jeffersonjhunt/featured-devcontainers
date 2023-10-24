@@ -1,19 +1,18 @@
 #!/bin/sh
 #-------------------------------------------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
+# Copyright (c) Jefferson J. Hunt. All rights reserved.
 # Licensed under the MIT License. See https://github.com/devcontainers/features/blob/main/LICENSE for license information.
 #-------------------------------------------------------------------------------------------------------------------------
 #
-# Docs: https://github.com/devcontainers/features/tree/main/src/common-utils
-# Maintainer: The Dev Container spec maintainers
+# Docs: https://github.com/jeffersonjhunt/featured-devcontainers/tree/main/src/opencv
+# Maintainer: Jefferson J. Hunt (jeffersonjhunt at gmail.com)
 
 set -e
 
-INSTALL_X11="${INSTALLX11:-"true"}"
-X11_DISPLAY="${X11DISPLAY:-""}
-X11_SOCKET="${X11SOCKET:-""}
+WITH_CUDA="${WITHCUDA:-"true"}"
+VERSION="${VERSION:-"4.8.1"}"
 
-MARKER_FILE="/usr/local/etc/vscode-dev-containers/x11"
+MARKER_FILE="/usr/local/etc/vscode-dev-containers/opencv"
 
 if [ "$(id -u)" -ne 0 ]; then
     echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'

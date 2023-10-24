@@ -1,11 +1,11 @@
 #!/bin/sh
 #-------------------------------------------------------------------------------------------------------------------------
-# Copyright (c) Microsoft Corporation. All rights reserved.
+# Copyright (c) Jefferson J. Hunt. All rights reserved.
 # Licensed under the MIT License. See https://github.com/devcontainers/features/blob/main/LICENSE for license information.
 #-------------------------------------------------------------------------------------------------------------------------
 #
-# Docs: https://github.com/devcontainers/features/tree/main/src/common-utils
-# Maintainer: The Dev Container spec maintainers
+# Docs: https://github.com/jeffersonjhunt/featured-devcontainers/tree/main/src/cpp
+# Maintainer: Jefferson J. Hunt (jeffersonjhunt at gmail.com)
 
 set -e
 
