@@ -55,5 +55,8 @@
             "default": false,
             "description": "Add WebP support?"
         }
-    }
+    },
+  "installsAfter": [
+      "ghcr.io/devcontainers/features/nvidia-cuda:1": {}
+  ]
 }

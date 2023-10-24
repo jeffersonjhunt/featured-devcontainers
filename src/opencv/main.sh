@@ -32,7 +32,7 @@ install_debian_packages() {
     local package_list=""
     if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         package_list="${package_list} \
-	        locales \
+            locales \
             build-essential \
             cmake"
     fi
@@ -66,11 +66,13 @@ install_debian_packages() {
 # RedHat / RockyLinux / CentOS / Fedora packages
 install_redhat_packages() {
     ## TODO ##
+    PACKAGES_ALREADY_INSTALLED="true"
 }
 
 # Alpine Linux packages
 install_alpine_packages() {
     ## TODO ##
+    PACKAGES_ALREADY_INSTALLED="true"
 }
 
 # ******************
