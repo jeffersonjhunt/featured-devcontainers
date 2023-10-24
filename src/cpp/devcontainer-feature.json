@@ -1,0 +1,24 @@
+{
+    "id": "cpp-support",
+    "version": "1.0.0",
+    "name": "C/C++ Support",
+    "documentationURL": "https://github.com/tbd",
+    "description": "Installs C/C++ support",
+    "options": {
+        "boost": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install Boost libraries?"
+        },
+        "cmake": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install CMake?"
+        },
+        "fmt": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install fmt library?"
+        }
+    }
+}
