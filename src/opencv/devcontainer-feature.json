@@ -10,6 +10,11 @@
             "default": "4.8.1",
             "description": "OpenCV version to install"
         },
+        "cleanUp": {
+            "type": "boolean",
+            "default": true,
+            "description": "Remove source and build tools after installation?"
+        },
         "withCuda": {
             "type": "boolean",
             "default": true,

@@ -9,8 +9,16 @@
 
 set -e
 
+CLEAN_UP="${CLEANUP:-"true"}"
 WITH_CUDA="${WITHCUDA:-"true"}"
 VERSION="${VERSION:-"4.8.1"}"
+WITH_PYTHON3="${WITHPYTHON3:-"true"}"
+WITH_GTK3="${WITHGTK3:-"false"}"
+WITH_JPEG="${WITHJPEG:-"false"}"
+WITH_OPENEXR="${WITHOPENEXR:-"false"}"
+WITH_PNG="${WITHPNG:-"false"}"
+WITH_TIFF="${WITHTIFF:-"false"}"
+WITH_WEBP="${WITHWEBP:-"false"}"
 
 MARKER_FILE="/usr/local/etc/vscode-dev-containers/opencv"
 
